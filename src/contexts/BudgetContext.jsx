@@ -2,17 +2,14 @@ import { createContext, useContext, useState } from "react";
 
 const BudgetContext = createContext();
 
-function ToggleBudget({}) {
-  if (Budget) SetBudget(false);
-  else SetBudget(true);
-}
+
 function BudgetProvider({ children }) {
-  const [Budget, SetBudget] = useState(false);
+  const [budget, setBudget] = useState(false);
   return (
     <BudgetContext.Provider
       value={{
-        Budget,
-        SetBudget,
+        budget,
+        setBudget,
       }}
     >
         {children}

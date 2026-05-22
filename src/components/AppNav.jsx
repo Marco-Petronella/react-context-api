@@ -5,10 +5,10 @@ import { setBudgetMode } from "../contexts/BudgetContext"
 
 export default function AppNav() {
 
-    const { Budget , SetBudget } = setBudgetMode();
+    const { budget , setBudget } = setBudgetMode();
     function toggleBudget() {
-        SetBudget(prev => !prev)
-        console.log(Budget)
+        setBudget(prev => !prev)
+        console.log(budget)
     }
     return (
         <nav className="container d-flex justify-content-between align-items-center">
@@ -16,7 +16,7 @@ export default function AppNav() {
             <NavLink to="/">HomePage</NavLink>
             <NavLink to="/AboutUs">Chi siamo</NavLink>
             <NavLink to="/products">Prodotti</NavLink>
-            <button className={Budget ? ( "active") : (null)} onClick={() => toggleBudget()}>Budget mode</button>
+            <button className={budget ? ( "active") : (null)} onClick={() => toggleBudget()}>Budget mode</button>
             
         </nav>
             
