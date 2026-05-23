@@ -13,8 +13,6 @@ import { BudgetProvider } from "./contexts/BudgetContext.jsx";
 function App() {
   return (
 /* 
-
-
 BONUS
 
  Trasformare la modalità budget in un vero e proprio filtro:

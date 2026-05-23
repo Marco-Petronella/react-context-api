@@ -16,7 +16,22 @@ export default function AppNav() {
             <NavLink to="/">HomePage</NavLink>
             <NavLink to="/AboutUs">Chi siamo</NavLink>
             <NavLink to="/products">Prodotti</NavLink>
+            <div className="">
             <button className={budget ? ( "active") : (null)} onClick={() => toggleBudget()}>Budget mode</button>
+            {budget ? ( <div class="mb-3">
+                <input
+                    type="text"
+                    className="form-control"
+                    name=""
+                    id=""
+                    aria-describedby="helpId"
+                    placeholder="Max price (default 30)"
+                onChange={setBudget()}
+                />
+            </div>
+            ) : ""
+            }
+            </div>
             
         </nav>
             
