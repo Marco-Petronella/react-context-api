@@ -14,14 +14,12 @@ export default function SingleProduct() {
 
   const apiUrl = `https://fakestoreapi.com/products/${id}`;
   useEffect(() => {
-    const checkId = parseInt(id)
-    console.log(checkId);
+    const checkId = parseInt(id);
     if ((checkId < 1) || (checkId >20)) { navigate("/products"); return }
     setLoading(true);
     fetch(apiUrl)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         setProduct(result);
         setLoading(false);
       })
