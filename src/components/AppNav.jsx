@@ -7,7 +7,7 @@ export default function AppNav() {
 
     const { budget , setBudget } = setBudgetMode();
     function toggleBudget() {
-        setBudget(prev => !prev)
+        setBudget(prev => (prev != null) ? (null) : (30))
         console.log(budget)
     }
     return (
@@ -17,7 +17,7 @@ export default function AppNav() {
             <NavLink to="/AboutUs">Chi siamo</NavLink>
             <NavLink to="/products">Prodotti</NavLink>
             <div className="">
-            <button className={budget ? ( "active") : (null)} onClick={() => toggleBudget()}>Budget mode</button>
+            <button className={(budget != null) ? ( "active") : (null)} onClick={() => toggleBudget()}>Budget mode</button>
             {budget ? ( <div class="mb-3">
                 <input
                     type="text"
@@ -25,8 +25,9 @@ export default function AppNav() {
                     name=""
                     id=""
                     aria-describedby="helpId"
+                    defaultValue={30}
                     placeholder="Max price (default 30)"
-                onChange={setBudget()}
+                onChange={setBudget ? (e) => setBudget(e.target.value) : null}
                 />
             </div>
             ) : ""

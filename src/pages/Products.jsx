@@ -30,7 +30,7 @@ export default function Products() {
                     </div>
                 ) : (
                     products.map((product) =>
-                        (budget ? Number(product.price) < 30 : true) ? (
+                        (budget ? Number(product.price) < budget : true) ? (
                             <AppCard key={product.id} product={product} />
                         ) : null
                     )
