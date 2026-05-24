@@ -7,13 +7,15 @@ import ErrorPage from "./pages/ErrorPage.jsx";
 import DefaultLayout from "./assets/DefaultLayout.jsx";
 import SingleProduct from "./pages/SingleProduct.jsx";
 import { BudgetProvider } from "./contexts/BudgetContext.jsx";
+import { ThemeProvider } from "./contexts/ThemeContext.jsx";
 
 
 
 function App() {
   return (
-
+    <ThemeProvider>
     <BudgetProvider>
+      
     <BrowserRouter>
       <Routes>
         <Route element={<DefaultLayout />}>
@@ -26,6 +28,7 @@ function App() {
       </Routes>
     </BrowserRouter>
     </BudgetProvider>
+    </ThemeProvider>
   );
 }
 

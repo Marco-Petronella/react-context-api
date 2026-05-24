@@ -1,12 +1,14 @@
 import { Reuleaux } from "ldrs/react";
+import { useTheme } from "../contexts/ThemeContext";
 import "ldrs/react/Reuleaux.css";
 
-// Default values shown
+
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function SingleProduct() {
+  const { mode } = useTheme();
   const { id } = useParams();
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -42,7 +44,7 @@ export default function SingleProduct() {
             />
           </div>
       ) : (
-        <div className="card text-bg-primary col-6 p-2">
+        <div className={`card col-6 p-2 ` + (mode === "light" ? ("") : ("dark-mode"))}>
             <h2 className="text-center">{product.title}</h2>
           <img
             src={product.image}
@@ -50,7 +52,7 @@ export default function SingleProduct() {
             alt={product.title}
           />
           <div className="card-body">
-            <h6 className="card-subtitle mb-2 text-muted ">
+            <h6 className="card-subtitle mb-2 ">
               {product.category}
             </h6>
             <p>price: {product.price}€</p>

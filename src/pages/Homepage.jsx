@@ -1,7 +1,9 @@
 import jumboImg from "../assets/jumbotron.webp";
+import { useTheme } from "../contexts/ThemeContext";
 export default function Homepage() {
+    const { mode } = useTheme();
   return (
-    <main className="container">
+    <main className={`container ` + (mode === "light" ? ("") : ("dark-mode"))}>
     <div id="jumbotron">
       <img className="jumbotron" src={jumboImg} alt="Jumbotron" />
       </div>
